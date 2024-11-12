@@ -44,6 +44,8 @@ object Main extends App {
   try {
     val df = readXlsxFile("src/main/resources/ISTANBUL STOCK EXCHANGE DATA SET.xlsx")
     print(df.head.mkString(", "))
+    df.take(6).foreach(row => println(row.mkString(", ")))
+
   } catch {
     case e: Exception => println(s"Error reading file: ${e.getMessage}")
   }
