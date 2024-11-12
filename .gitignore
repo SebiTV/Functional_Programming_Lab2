@@ -1,0 +1,71 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+out/
+target/
+dist/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# SBT directories
+.project/
+.target/
+.cache/
+.history/
+.sbt/
+lib_managed/
+src_managed/
+boot/
+
+# Maven target directory
+target/
+
+# Scala-specific files
+.scala_history
+
+# Metals and Bloop files (if using Metals in VSCode)
+.metals/
+.bloop/
+
+# Dependency lock files
+ivy2/
+coursier/
+lib_managed/
+target/scala-*/
+
+# Compiled class files
+*.class
+*.jar
+*.war
+*.ear
+
+# Test results and coverage files
+test-reports/
+.coverage
+.coverage.*
+
+# Optional: Uncomment if using IntelliJ
+# .idea/
+# *.iml
+# .classpath
+# .project
+# .settings/
+programm/src/main/scala/.bsp/scala.json
+programm/src/main/scala/.scala-build/ide-inputs.json
+programm/src/main/scala/.scala-build/ide-envs.json
+programm/src/main/scala/.scala-build/ide-launcher-options.json
+programm/src/main/scala/.scala-build/ide-options-v2.json
