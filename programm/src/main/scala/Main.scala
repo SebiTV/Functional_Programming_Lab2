@@ -58,6 +58,12 @@ object Main extends App {
     //Removing the column EM with the index 9
     val dfWithoutColumn = df.map(row => row.patch(9, Nil, 9))
     println(dfWithoutColumn.head.mkString(", "))
+    // Get column name from header
+    val columnName = df.head(6)
+    // Find max value (excluding header)
+    val maxValue = data.tail.map(row => row(6).toDouble).max
+    println(s"Maximum value for $columnName: $maxValue")
+    
   } catch {
     case e: Exception => println(s"Error reading file: ${e.getMessage}")
   }
