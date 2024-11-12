@@ -43,8 +43,11 @@ object Main extends App {
 // Example usage
   try {
     val df = readXlsxFile("src/main/resources/ISTANBUL STOCK EXCHANGE DATA SET.xlsx")
-    print(df.head.mkString(", "))
-    df.take(6).foreach(row => println(row.mkString(", ")))
+    println(df.head.mkString(", "))
+    df.slice(1, 6).foreach(row => println(row.mkString(", ")))
+    val sortedDF = df.sortBy(row => row.head)
+    println("Sorted DataFrame:")
+    sortedDF.slice(0, 5).foreach(row => println(row.mkString(", ")))
 
   } catch {
     case e: Exception => println(s"Error reading file: ${e.getMessage}")
