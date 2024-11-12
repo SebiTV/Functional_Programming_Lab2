@@ -63,7 +63,23 @@ object Main extends App {
     // Find max value (excluding header)
     val maxValue = data.tail.map(row => row(6).toDouble).max
     println(s"Maximum value for $columnName: $maxValue")
-    
+    // Add new column by mapping each row
+    val dfMean = df.map { row =>
+      if (row == df.head) {
+        // Add header for new column
+        row :+ "Mean_DAX_FTSE"
+      } else {
+        // Add calculated value for new column
+        val dax = row(3).toDouble
+        val ftse = row(4).toDouble
+        val mean = (dax + ftse) / 2
+        row :+ mean.toString
+      }
+    }
+    println("Header:")
+    println(dfMean.head.mkString(", "))
+    println("\nFirst 5 rows with mean:")
+    dfMean.slice(1, 6).foreach(row => println(row.mkString(", ")))
   } catch {
     case e: Exception => println(s"Error reading file: ${e.getMessage}")
   }
