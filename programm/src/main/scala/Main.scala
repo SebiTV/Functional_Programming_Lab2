@@ -43,14 +43,21 @@ object Main extends App {
 // Example usage
   try {
     val df = readXlsxFile("src/main/resources/ISTANBUL STOCK EXCHANGE DATA SET.xlsx")
+    //Print the Head of the DataFrame == The first Line of the DataFrame
     println(df.head.mkString(", "))
+    //Print the first 5 rows of the DataFrame with data going from the second line of the DataFrame
     df.slice(1, 6).foreach(row => println(row.mkString(", ")))
+    //Sort the DataFrame by the first column (Date)
+    //seperating the header from the data, so that the header is not sorted
     val header = df.head
     val data =  df.tail
+    //Sort the DataFrame by the first column (Date) and putting them back together
     val sortedDF = header :: data.sortBy(row => row.head)
     println("Sorted DataFrame:")
     sortedDF.slice(0, 6).foreach(row => println(row.mkString(", ")))
-
+    //Removing the column EM with the index 9
+    val dfWithoutColumn = df.map(row => row.patch(9, Nil, 9))
+    println(dfWithoutColumn.head.mkString(", "))
   } catch {
     case e: Exception => println(s"Error reading file: ${e.getMessage}")
   }
