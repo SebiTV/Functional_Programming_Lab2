@@ -114,7 +114,7 @@ object Main extends App {
     println("First 5 rows with mean:")
     dfMean.slice(1, 6).foreach(row => println(row.mkString(", ")))
     def find_highest_value(columnNumber: Int): (Double) = {
-      val maxValue = data.tail.map(row => row(columnNumber).toDouble).max
+      val maxValue = dfMean.tail.map(row => row(columnNumber).toDouble).max
       maxValue
     }
     println(s"Highest value for column 6: ${find_highest_value(6)}")
